@@ -1,0 +1,111 @@
+/* Base Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Centered Form Styling */
+/* → max-width를 600px으로 늘려 체크박스 컨테이너가 잘 들어가도록 함 */
+form {
+    max-width: 600px;      /* 기존 300px → 600px으로 확장 */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 제목(h2)도 폼 너비에 맞춰 가운데 정렬 */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Input Styling */
+/* → width를 100%로 설정하여 폼 안에서 꽉 차도록 함 */
+input[type="text"] {
+    width: 100%;           /* 기존 95% → 100% */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Button Styling */
+input[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the dropdown menu */
+/* → 드롭다운도 폼 안에서 100% 너비를 차지하도록 설정 */
+select#cuisine {
+    width: 100%;           /* 기존 200px → 100% */
+    padding: 10px;         /* padding을 늘려 폼 안 맞춤 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for the dropdown placeholder text */
+select#cuisine::placeholder {
+    color: #999;
+}
+
+/* Style for the dropdown options */
+select#cuisine option {
+    font-size: 16px;
+}
+
+/* Style for the label */
+.subheading {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Styling for a container to group checkboxes */
+/* → width를 100%로 바꾸고 내부 여백으로 크기 잡아줌 */
+.checkbox-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;           /* 기존 400px → 100% */
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* Style for the individual checkbox groups */
+/* → flex 속성 그대로 유지 */
+.checkbox-group {
+    flex: 0 0 calc(50% - 5px);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for labels associated with checkboxes */
+label.checkbox-label {
+    display: inline-block;
+    margin-right: 10px;
+}

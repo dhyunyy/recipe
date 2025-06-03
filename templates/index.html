@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <h2>Input 3 Ingredients</h2>
+    <h2>2021810008_KIMDOHYUN</h2>
+    <form action="/generate_recipe" method="post">
+
+        <!-- ─────────────────────────────────────────────────────── ─────────── -->
+        
+        <!-- 수평 정렬을 위해 ingredients-container 안에 3개의 input 배치 -->
+        <div class="ingredients-container">
+            <input
+                type="text"
+                name="ingredient"
+                placeholder="Ingredient 1"
+                required
+            />
+            <input
+                type="text"
+                name="ingredient"
+                placeholder="Ingredient 2"
+                required
+            />
+            <input
+                type="text"
+                name="ingredient"
+                placeholder="Ingredient 3"
+                required
+            />
+        </div>
+         <label class="subheading" for="cuisine">
+            Choose a cuisine:
+        </label>
+        <select name="cuisine" id="cuisine">
+            {% for cuisine in cuisines %}
+                <option value="{{ cuisine.lower().replace(' ', '_') }}">
+                    {{ cuisine }}
+                </option>
+            {% endfor %}
+        </select>
+        <br /><br />
+        <!-- Dietary Restrictions 체크박스를 표시할 부분 -->
+        <label class="subheading" for="restrictions">
+            Dietary Restrictions:</label>
+            <div class="checkbox-container">
+                {% for restriction in dietary_restrictions %}
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input
+                            type="checkbox"
+                            name="restrictions"
+                            value="{{ restriction.lower().replace(' ', '_') }}"
+                        />
+                        {{ restriction }}
+                    </label>
+                </div>
+            {% endfor %}
+            </div>
+        <br />
+        <label class="subheading" for="language">Choose a language:</label>
+        <select name="language" id="language">
+            {% for name, code in languages.items() %}
+                <option value="{{ name }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <br /><br />
+        <input type="submit" value="Generate Recipe" />
+    </form>
+</body>
+</html>
